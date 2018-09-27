@@ -35,12 +35,18 @@ for vhc in vehicleActivity:
 	vhc_location = vehicleActivity[count]['MonitoredVehicleJourney']['VehicleLocation']
 	lon = vhc_location['Longitude']
 	lat = vhc_location['Latitude']
-	OnwardCalls = vehicleActivity[count]['MonitoredVehicleJourney']['OnwardCalls']['OnwardCall']
-	stopName = OnwardCalls[0]['StopPointName'][0]
-	stopStatus = OnwardCalls[0]['ArrivalProximityText']
+	try:
+		OnwardCalls = vehicleActivity[count]['MonitoredVehicleJourney']['OnwardCalls']['OnwardCall']
+		stopName = OnwardCalls[0]['StopPointName'][0]
+		stopStatus = OnwardCalls[0]['ArrivalProximityText']
+	except KeyError:
+		stopName = 'N/A'
+		stopStatus = 'N/A'
 	# row = np.array([lat,lon,stopName,stopStatus])
 	rows.append([lat,lon,stopName,stopStatus])
 	count += 1
 
+filename = sys.argv[3]
 df = pd.DataFrame(rows, columns = header)
+df.to_csv(filename)
 print(df)
