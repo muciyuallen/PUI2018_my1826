@@ -12,7 +12,7 @@ No: this would be the NH corresponding to "man take longer or shorter trips than
 
 the data is processed fine to support the question
 
-#TEST 
+# TEST 
 
 this is a difference between means of samples, so the t test would work. however the distributions are not Gaussian. 
 the t-test assumes Gaussianity and your distributions are not Gaussian. a non parametric test for difference of means is the Mann-Whitney U test (https://www.healthknowledge.org.uk/public-health-textbook/research-methods/1b-statistical-methods/parametric-nonparametric-tests)
