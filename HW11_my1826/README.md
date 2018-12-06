@@ -12,4 +12,4 @@ All individual work. Topics include:
 
 Updated plots for HW8
 
-
+![Citi Bike Arrival/Departure Visualization](snap.png)
